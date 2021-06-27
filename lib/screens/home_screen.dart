@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:plantshop/models/plant.dart';
+import 'package:plantshop/screens/detail_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -120,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          
+
           // ListView.builder(
           //   itemBuilder: (BuildContext context, int index) {
           //     return Container(
@@ -143,11 +144,22 @@ class _HomeScreenState extends State<HomeScreen> {
           value = _pageController.page - index;
           value = (1 - (value.abs() * 0.3)).clamp(0.0, 2.0);
         }
-        return Center(
-          child: SizedBox(
-            height: Curves.easeInOut.transform(value) * 500.0,
-            width: Curves.easeInOut.transform(value) * 400.0,
-            child: widget,
+        return GestureDetector(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (_) => DetailScreen(
+                        plant: plants[index],
+                      )),
+            );
+          },
+          child: Center(
+            child: SizedBox(
+              height: Curves.easeInOut.transform(value) * 500.0,
+              width: Curves.easeInOut.transform(value) * 400.0,
+              child: widget,
+            ),
           ),
         );
       },
