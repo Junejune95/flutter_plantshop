@@ -79,8 +79,8 @@ class DetailScreen extends StatelessWidget {
                           child: Hero(
                             tag: plant.imageUrl,
                             child: Image(
-                              height: 240.0,
-                              width: 240.0,
+                              height: 220.0,
+                              width: 220.0,
                               image: AssetImage(plant.imageUrl),
                               fit: BoxFit.contain,
                             ),
