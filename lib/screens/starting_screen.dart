@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:plantshop/screens/home_screen.dart';
 
 class StartingScreen extends StatelessWidget {
   @override
@@ -51,7 +52,14 @@ class StartingScreen extends StatelessWidget {
                     child: Column(
                       children: [
                         GestureDetector(
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => HomeScreen(),
+                              ),
+                            );
+                          },
                           child: Container(
                             height: 50,
                             width: MediaQuery.of(context).size.width / 1.5,
